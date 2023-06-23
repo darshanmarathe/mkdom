@@ -56,14 +56,14 @@ But now your code is safe and SCAT tools are happy with it. :-)
     )
 
 ## API
-construct 
+**construct** 
 
     const elem  = mkDOM('div')
     // Output
     //<div></div>
 
 
-construct advanced 
+**construct advanced** 
 
     const elem  = mkDOM('div', {
     'class' : 'app'
@@ -72,7 +72,7 @@ construct advanced
     //<div class='app'></div>
 
 
-append
+**.append**
 
     const elem  = mkDOM('div', {
         'class' : 'app'
@@ -84,32 +84,32 @@ append
         <span> Hello world </span>
         </div>
 
-.data (setter and getter)
+**.data (setter and getter)**
 
     const elem  = mkDOM('div').data('id' , 'test')
     const id = elem.data('id')
     //<div data-id='test></div>
 
-.content (setter, getter)
+**.content (setter, getter)**
 
     const elem  = mkDOM('div').content('hello world')
     const content = elem.content();
     //<div>Hello world</div>
 
-.css (setter , getter)
+**.css (setter , getter)**
 
     const elem  = mkDOM('div').css('border' , '1px solid black')
     const css= elem.css('broder');
     //<div style='border:1px solid black'></div>
 
 
-.attr (setter , getter)
+**.attr (setter , getter)**
 
     const elem  = mkDOM('div').attr('rel' , 'container')
     const attr= elem.attr('rel');
     //<div rel='container'></div>
 
-.on(event , callback)
+**.on(event , callback)**
 
     const elem  = mkDOM('div'),content('click me').on('click' , (e) => {
     alert('hello')   
@@ -117,7 +117,7 @@ append
     const attr= elem.attr('rel');
     //<div>click me</div>
 
-appendArray(arr, callback)
+**.appendArray(arr, callback)**
      
  
 
