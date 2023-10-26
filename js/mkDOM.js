@@ -21,31 +21,33 @@ var mkDOM = function(tag, props ={}){
             return this;
         },
         data(key , value){
-            element.dataset[key] = value
-        },
-        data(key){
+            if(!value)
             return element.dataset[key];
+            else
+            element.dataset[key] = value
+            return
         },
-        content(text) {
-            element.textContent = text;
-            return this;
-        },
-        content() {
+        content: function(text){
+           if(!text)
             return element.textContent;
+           else 
+           element.textContent = text;
+        
+           return this;
         },
-        attr(key , value) {
+        attr(key , value){
+            if(!value)
+            return element.getAttribute(key)
+            else
             element.setAttribute(key , value);
             return this;
         },
-        attr(key){
-            return element.getAttribute(key)
-        },
         css(attr , value){
+            if(!value)
+            return element.style[attr] = value;
+            else
             element.style[attr] = value;
             return this;
-        },
-        css(attr){
-            return element.style[attr] = value;
         },
         on(event , func){
             if(typeof func === 'string'){
@@ -59,6 +61,16 @@ var mkDOM = function(tag, props ={}){
         appendArray(arr , func){
             arr.forEach(e => this.append(func(e)));
             return this;
+        },
+        clear(){
+            element.childNodes.forEach(e => {
+                element.removeChild(e)
+            })
+            return this;
+        },
+        AppendTo(_selector){
+            document.querySelector(_selector).appendChild(element)
         }
+
     }
 }
